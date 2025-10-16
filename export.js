@@ -13,6 +13,14 @@ if (!fs.existsSync(OUTPUT_DIR)) {
   console.log(`Created directory: ${OUTPUT_DIR}`);
 }
 
+// Copy gallery.css to output directory
+try {
+  fs.copyFileSync(CSS_FILE, path.join(OUTPUT_DIR, 'gallery.css'));
+  console.log(`Copied gallery.css to output directory`);
+} catch (err) {
+  console.error(`Error copying CSS file: ${err.message}`);
+}
+
 // Process markdown files
 fs.readdir(ARTICLES_DIR, (err, files) => {
   if (err) {
@@ -41,7 +49,7 @@ fs.readdir(ARTICLES_DIR, (err, files) => {
 <head>
   <meta charset="UTF-8">
   <title>${file.slice(0, -3)}</title>
-  <link rel="stylesheet" href="../gallery.css">
+  <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
 ${htmlContent}
