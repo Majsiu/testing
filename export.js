@@ -13,16 +13,6 @@ if (!fs.existsSync(OUTPUT_DIR)) {
   console.log(`Created directory: ${OUTPUT_DIR}`);
 }
 
-// Read and embed CSS
-let cssContent = '';
-try {
-  cssContent = fs.readFileSync(CSS_FILE, 'utf8');
-  console.log(`Using CSS from: ${CSS_FILE}`);
-} catch (err) {
-  console.error(`Error reading CSS file: ${err.message}`);
-  process.exit(1);
-}
-
 // Process markdown files
 fs.readdir(ARTICLES_DIR, (err, files) => {
   if (err) {
@@ -51,7 +41,7 @@ fs.readdir(ARTICLES_DIR, (err, files) => {
 <head>
   <meta charset="UTF-8">
   <title>${file.slice(0, -3)}</title>
-  <style>${cssContent}</style>
+  <link rel="stylesheet" href="../gallery.css">
 </head>
 <body>
 ${htmlContent}
