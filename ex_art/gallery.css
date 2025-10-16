@@ -35,7 +35,7 @@ img {
 }
 
 a {
-  color: #FFF !important;
+  color: #000000 !important;
   text-decoration: none;
   font-weight: bold;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
@@ -43,7 +43,7 @@ a {
 }
 
 a:hover {
-  color: #FFFF00 !important;
+  color: #1900ff !important;
   text-shadow: 0 0 10px rgba(255, 255, 0, 0.8); 
 }
 
